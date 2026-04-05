@@ -6150,6 +6150,14 @@ async function run(): Promise<CommanderCommand> {
       await doctorHandler(root)
     })
 
+  // claude test-agent — run the test agent for Flutter / generic testing
+  {
+    const { registerTestAgentCommand } = await import(
+      './test-agent/cli.js'
+    )
+    registerTestAgentCommand(program)
+  }
+
   // claude update
   //
   // For SemVer-compliant versioning with build metadata (X.X.X+SHA):
